@@ -12,14 +12,42 @@ and thanks to ChatGPT
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <a-scene 
-        mindar-image="imageTargetSrc: Gintama-ad.mind;" 
-        color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights" 
-        vr-mode-ui="enabled: false"
+
+    <!-- Intro Card -->
+    <div class="intro-card">
+        <div class="intro-content">
+            <button class="close-btn">&times;</button>
+            <h2>A Cyber PVC Card (V1.0)</h2>
+
+            <div class="section">
+                <div class="section-title">NOTICE</div>
+                <p>This is a Web AR site. It will request access to your camera, but your video is only used locally for
+                    image recognition and will not be stored or shared.</p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">HOW TO USE</div>
+                <ol>
+                    <li>Hold your AR card in front of the camera to scan it.</li>
+                    <li>The photo capture feature is currently unavailable — please take a normal screenshot if you’d
+                        like to save the scene.</li>
+                </ol>
+            </div>
+
+            <footer>
+                X (twitter) | Rednote (小红书) | Bilibili<br>
+                <span class="tag">@GRIDDDD</span>
+            </footer>
+        </div>
+    </div>
+
+    <a-scene mindar-image="imageTargetSrc: Gintama-ad.mind;" color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
 
         <a-assets>
@@ -29,17 +57,13 @@ and thanks to ChatGPT
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <a-entity mindar-image-target="targetIndex: 0">
-            <a-plane 
-                src="#card" 
-                position="0 1 0" 
-                height="1" 
-                width="1.39"
-                rotation="60 0 0" 
-                transparent="true"
+            <a-plane src="#card" position="0 1 0" height="1" width="1.39" rotation="60 0 0" transparent="true"
                 alpha-test="0.5">
             </a-plane>
         </a-entity>
     </a-scene>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
